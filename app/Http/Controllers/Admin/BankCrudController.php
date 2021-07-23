@@ -43,6 +43,7 @@ class BankCrudController extends CrudController
         $this->crud->column('name')->type('string');
         $this->crud->column('url')->type('string');
         $this->crud->column('survey_url')->label('Surver URL')->type('string');
+        $this->crud->column('is_enable')->label('Enable')->type('boolean');
         $this->crud->addColumn([
             'name' => 'user_id',
             'entity' => 'user',
@@ -75,6 +76,7 @@ class BankCrudController extends CrudController
         ]);
         $this->crud->field('url')->type('url');
         $this->crud->field('survey_url')->label('Surver URL')->type('url');
+        $this->crud->field('is_enable')->label('Enable')->type('checkbox');
         $this->crud->addField([
             'name' => 'user_id',
             'type' => 'select2',
@@ -107,6 +109,7 @@ class BankCrudController extends CrudController
     protected function setupShowOperation() {
         $this->crud->column('url')->type('string');
         $this->crud->column('name');
+        $this->crud->column('is_enable')->type('boolean');
         $this->crud->addColumn([
             'name' => 'user_id',
             'entity' => 'user',
