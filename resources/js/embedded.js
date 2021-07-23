@@ -223,11 +223,12 @@ import MicroModal from "micromodal";
 
     window.addEventListener('load', function() {
         getContent().then(data => {
+            console.log(data);
             if (!data.is_enable) {
                 return
             }
-            createIframe(data);
             createPopup();
+            createIframe(data);
         })
     })
 })();
