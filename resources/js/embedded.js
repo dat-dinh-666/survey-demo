@@ -207,7 +207,7 @@ import MicroModal from "micromodal";
     }
 
     async function getContent(){
-        const res = await fetch(`http://localhost/api/v1/banks?url=${currentUrl}`);
+        const res = await fetch(`http://54.169.173.107/api/v1/banks?url=${currentUrl}`);
         const response = await res.json();
         const embbeded = response.data;
         const iframe = document.createElement('iframe', {})
