@@ -1,4 +1,5 @@
 import MicroModal from "micromodal";
+
 (function (){
     const currentUrl = window.location.href;
 
@@ -209,17 +210,24 @@ import MicroModal from "micromodal";
     async function getContent(){
         const res = await fetch(`http://54.169.173.107/api/v1/banks?url=${currentUrl}`);
         const response = await res.json();
-        const embbeded = response.data;
+        return response.data;
+    }
+
+    function createIframe(data) {
         const iframe = document.createElement('iframe', {})
-        iframe.setAttribute('src', embbeded.survey_url);
+        iframe.setAttribute('src', data.survey_url);
         iframe.setAttribute('width', '1000px');
         iframe.setAttribute('height', '500px');
         document.getElementById('modal-1-content').appendChild(iframe);
     }
 
     window.addEventListener('load', function() {
-        createPopup();
-        getContent();
+        getContent().then(data => {
+            if (!data.enable) {
+                return
+            }
+            createIframe(data);
+            createPopup();
+        })
     })
-
 })();
