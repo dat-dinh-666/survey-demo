@@ -223,7 +223,7 @@ import MicroModal from "micromodal";
 
     window.addEventListener('load', function() {
         getContent().then(data => {
-            if (!data.enable) {
+            if (!data.is_enable) {
                 return
             }
             createIframe(data);
