@@ -15,7 +15,7 @@ class CreateRadioQuestionValueTable extends Migration
     {
         Schema::create('radio_question_values', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('question_id')->references('id')->on('question');
+            $table->foreignId('question_id')->references('id')->on('questions');
             $table->text('value')->nullable(false);
             $table->timestamps();
         });
