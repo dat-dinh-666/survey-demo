@@ -15,7 +15,7 @@ class CreateQuestionTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('bank_id')->references('id')->on('bank');
+            $table->foreignId('bank_id')->references('id')->on('banks');
             $table->text('question')->nullable(false);
             $table->enum('type', ['text', 'radio', 'number'])->nullable(false)->default('text');
             $table->boolean('required')->default(false)->nullable(false);
