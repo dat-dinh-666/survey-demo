@@ -208,7 +208,7 @@ import MicroModal from "micromodal";
     }
 
     async function getContent(){
-        const res = await fetch(`http://54.169.173.107/api/v1/banks?url=${currentUrl}`);
+        const res = await fetch(`${process.env.MIX_APP_URL}/api/v1/banks?url=${currentUrl}`);
         const response = await res.json();
         return response.data;
     }
