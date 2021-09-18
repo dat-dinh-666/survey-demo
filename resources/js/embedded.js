@@ -30,6 +30,7 @@ import MicroModal from "micromodal";
             '  display: flex;\n' +
             '  justify-content: center;\n' +
             '  align-items: center;\n' +
+            '  z-index: 9999' +
             '}\n' +
             '\n' +
             '.modal__container {\n' +
@@ -162,8 +163,7 @@ import MicroModal from "micromodal";
             '.micromodal-slide .modal__container,\n' +
             '.micromodal-slide .modal__overlay {\n' +
             '  will-change: transform;\n' +
-            '}\n' +
-            '{"mode":"full","isActive":false}';
+            '}\n';
 
         const popup = htmlToElement(`
          <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
