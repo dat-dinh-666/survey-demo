@@ -64,9 +64,14 @@ class UserCrudController extends CrudController
         CRUD::setValidation(UserRequest::class);
 
         CRUD::field('name');
+        CRUD::field('is_admin');
         CRUD::field('email');
         CRUD::field('password');
-        CRUD::field('is_admin');
+        $this->crud->addField([
+            'name'  => 'password_confirmation',
+            'label' => 'Password Confirmation',
+            'type'  => 'password',
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
