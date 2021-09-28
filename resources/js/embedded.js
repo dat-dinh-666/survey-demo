@@ -76,7 +76,6 @@ import {modal_id, base_url} from './embeded/config';
 
     function createHover(data) {
         const hover_id = data.show_when_hover_id;
-
         $(`#${hover_id}`).on('mouseover', () => {
             MicroModal.show(modal_id);
         })

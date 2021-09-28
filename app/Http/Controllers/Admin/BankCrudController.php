@@ -31,7 +31,7 @@ class BankCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Bank::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/survey');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/bank');
         CRUD::setEntityNameStrings('survey', 'Surveys');
     }
 
@@ -119,7 +119,6 @@ class BankCrudController extends CrudController
         $this->crud->field('button_color')->label('Button Color')->type('color');
         $this->crud->field('button_position')->label('Button Position')->type('enum');
         $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number');
-        $this->crud->field('show_when_move_to_header')->label('Show popup when mouse move to header')->type('checkbox');
         $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over');
 
         /**
