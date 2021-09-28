@@ -87,6 +87,12 @@ class BankCrudController extends CrudController
             'pivot' => false,
             'allows_null' => false
         ]);
+        $this->crud->field('button_text')->label('Button Text')->type('text');
+        $this->crud->field('button_color')->label('Button Color')->type('color');
+        $this->crud->field('button_position')->label('Button Position')->type('enum');
+        $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number');
+        $this->crud->field('show_when_move_to_header')->label('Show popup when mouse move to header')->type('checkbox');
+        $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
