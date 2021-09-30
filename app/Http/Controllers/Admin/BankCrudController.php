@@ -87,7 +87,7 @@ class BankCrudController extends CrudController
             'allows_null' => false
         ]);
         $this->crud->field('url')->type('url');
-        $this->crud->field('survey_url')->label('Surver URL')->type('url');
+        $this->crud->field('survey_url')->label('Survey URL')->type('url');
         $this->crud->field('is_enable')->label('Enable')->type('checkbox');
         if($userIsAdmin) {
             $this->crud->addField([
@@ -120,6 +120,14 @@ class BankCrudController extends CrudController
         $this->crud->field('button_position')->label('Button Position')->type('enum');
         $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number');
         $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over');
+        $this->crud->field('max_show_on_hover_times')
+            ->label('Max show on hover times')
+            ->hint('Maximum number of times the popup shows when hover over Hover ID element')
+            ->type('number')
+            ->attributes([
+                'min' => 1
+            ])
+            ->default(null);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -151,6 +159,14 @@ class BankCrudController extends CrudController
             'multiple' => false,
             'pivot' => false,
         ]);
+        $this->crud->column('button_text')->label('Button Text')->type('text');
+        $this->crud->column('button_color')->label('Button Color')->type('color');
+        $this->crud->column('button_position')->label('Button Position')->type('enum');
+        $this->crud->column('popup_timeout')->label('Popup timeout (in seconds)')->type('number');
+        $this->crud->column('show_when_hover_id')->label('Hover ID');
+        $this->crud->column('max_show_on_hover_times')
+            ->label('Max show on hover times')
+            ->type('number');
     }
 
     public function show($id) {

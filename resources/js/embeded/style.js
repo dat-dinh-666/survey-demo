@@ -20,7 +20,7 @@ const style = `
 .modal__container {
   background-color: #fff;
   padding: 30px;
-  max-width: 90%;
+  max-width: 375px;
   max-height: 100vh;
   border-radius: 4px;
   overflow-y: auto;
@@ -97,6 +97,7 @@ const style = `
 
 .modal__container iframe {
   max-width: 100%;
+  border: none;
 }
 
 

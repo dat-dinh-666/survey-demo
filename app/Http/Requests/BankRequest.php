@@ -28,7 +28,14 @@ class BankRequest extends FormRequest
             'name' => 'required|max:255',
             'url' => 'required',
             'survey_url' => 'required',
-            'user_id' => 'required'
+            'is_enable' => 'boolean',
+            'user_id' => 'required',
+            'button_text' => 'string',
+            'button_color' => 'string|min:7|max:7',
+            'button_position' => 'string',
+            'popup_timeout' => 'numeric|nullable',
+            'show_when_hover_id' => 'string',
+            'max_show_on_hover_times' => 'numeric|nullable'
         ];
     }
 

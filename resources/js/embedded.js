@@ -16,9 +16,9 @@ import {modal_id, base_url} from './embeded/config';
     }
 
     function createPopup(data){
-        const button_text = data.button_text;
-        const button_color = data.button_color;
-        const button_position = data.button_position;
+        const button_text = data.button_text ?? 'Open Survey';
+        const button_color = data.button_color ?? 'black';
+        const button_position = data.button_position ?? 'left';
 
         const position_style = button_position === 'left' ? 'left: 0' : 'right: 0';
 
@@ -75,8 +75,17 @@ import {modal_id, base_url} from './embeded/config';
     }
 
     function createHover(data) {
+        let hover_count = 0;
         const hover_id = data.show_when_hover_id;
+        const max_hover_time = data.max_show_on_hover_times;
+        if(!hover_id) {
+            return;
+        }
         $(`#${hover_id}`).on('mouseover', () => {
+            if(hover_count >= max_hover_time) {
+                return;
+            }
+            hover_count ++;
             MicroModal.show(modal_id);
         })
     }
