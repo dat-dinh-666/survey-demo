@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
-        "micromodal": "^0.4.6"
+        "micromodal": "^0.4.6",
+        "squirrelly": "^8.0.8"
     }
 }

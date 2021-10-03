@@ -1,31 +1,25 @@
 import MicroModal from "micromodal";
-
 import style from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
+import {htmlToElement} from "./embeded/utils";
 
 (function (){
     const currentUrl = window.location.href;
-
-
-    function htmlToElement(html) {
-        const template = document.createElement('template');
-        html = html.trim(); // Never return a text node of whitespace as the result
-        template.innerHTML = html;
-        return template.content.firstChild;
-    }
 
     function createPopup(data){
         const button_text = data.button_text ?? 'Open Survey';
         const button_color = data.button_color ?? 'black';
         const button_position = data.button_position ?? 'left';
+        const close_btn_title = data.close_btn_title ?? 'Close';
+        const header_img_url = data.header_img_url ?? null;
 
         const position_style = button_position === 'left' ? 'left: 0' : 'right: 0';
 
         const styles = document.createElement('style');
         styles.innerHTML = style;
 
-        const popup = htmlToElement(template);
+        const popup = htmlToElement(template, {close_btn_title, header_img_url});
 
         const popupOpen = htmlToElement(`
             <div style="position: fixed;

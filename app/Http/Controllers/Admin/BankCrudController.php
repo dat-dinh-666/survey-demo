@@ -128,7 +128,15 @@ class BankCrudController extends CrudController
                 'min' => 1
             ])
             ->default(null);
-
+        $this->crud->addField([
+            'name'      => 'header_img_url',
+            'label'     => 'Header Image',
+            'hint'      => 'Image show on top of the survey',
+            'type'      => 'upload',
+            'upload'    => true,
+            'disk'      => 'public',
+        ]);
+        $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

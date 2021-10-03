@@ -17,6 +17,10 @@ const style = `
   z-index: 1000;
 }
 
+.modal__header_img {
+  width: 100%;
+}
+
 .modal__container {
   background-color: #fff;
   padding: 30px;

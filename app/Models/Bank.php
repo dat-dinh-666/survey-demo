@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Bank extends Model
 {
@@ -28,6 +29,11 @@ class Bank extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+//    public static function boot(){
+//        static::deleting(function($obj) {
+//            Storage::disk('storage/app/backpack')->delete($obj->header_img_url);
+//        });
+//    }
 
     /*
     |--------------------------------------------------------------------------
@@ -53,9 +59,29 @@ class Bank extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getHeaderImgUrlAttribute($value) {
+        if(!$value) {
+            return $value;
+        }
+        $url = Storage::url($value);
+        return asset($url);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function setHeaderImgUrlAttribute($value)
+    {
+        if(!$value) {
+            return $value;
+        }
+        $attribute_name = "header_img_url";
+        $disk = "public";
+        $destination_path = "backpack";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    }
 }
