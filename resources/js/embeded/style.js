@@ -17,6 +17,10 @@ const style = `
   z-index: 1000;
 }
 
+.modal_header_img_wrapper {
+  margin: 20px 0;
+}
+
 .modal__header_img {
   width: 100%;
 }
@@ -59,6 +63,11 @@ const style = `
   margin-bottom: 2rem;
   line-height: 1.5;
   color: rgba(0,0,0,.8);
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: center;
 }
 
 .modal__btn {
