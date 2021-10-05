@@ -18,7 +18,7 @@ const style = `
 }
 
 .modal_header_img_wrapper {
-  margin: 20px 0;
+  margin: 20px 0 20px 26px;
   padding: 0 10px;
 }
 
