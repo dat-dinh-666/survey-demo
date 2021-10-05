@@ -117,6 +117,7 @@ class BankCrudController extends CrudController
         }
         $this->crud->field('button_text')->label('Button Text')->type('text');
         $this->crud->field('button_color')->label('Button Color')->type('color');
+        $this->crud->field('button_bg_color')->label('Button Background Color')->type('color');
         $this->crud->field('button_position')->label('Button Position')->type('enum');
         $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number');
         $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over');

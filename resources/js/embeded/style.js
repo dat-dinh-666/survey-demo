@@ -19,6 +19,7 @@ const style = `
 
 .modal_header_img_wrapper {
   margin: 20px 0;
+  padding: 0 10px;
 }
 
 .modal__header_img {
@@ -27,9 +28,9 @@ const style = `
 
 .modal__container {
   background-color: #fff;
-  padding: 30px;
+  padding: 10px;
   max-width: 375px;
-  max-height: 100vh;
+  max-height: 90vh;
   border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
@@ -38,7 +39,7 @@ const style = `
 .modal__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .modal__title {

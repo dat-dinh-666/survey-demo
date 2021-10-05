@@ -10,6 +10,7 @@ import {htmlToElement} from "./embeded/utils";
     function createPopup(data){
         const button_text = data.button_text ?? 'Open Survey';
         const button_color = data.button_color ?? 'black';
+        const button_bg_color = data.button_bg_color ?? 'white';
         const button_position = data.button_position ?? 'left';
         const close_btn_title = data.close_btn_title ?? 'Close';
         const header_img_url = data.header_img_url ?? null;
@@ -26,7 +27,7 @@ import {htmlToElement} from "./embeded/utils";
                 ${position_style};
                 top: 50%;
                 z-index: 10000;
-                background: white;
+                background: ${button_bg_color};
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12);
                 color: ${button_color};
                 padding: 10px 5px;
