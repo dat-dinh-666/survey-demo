@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\DB;
 
 class CheckIfAdmin
 {
@@ -65,7 +66,9 @@ class CheckIfAdmin
         if (! $this->checkIfUserIsAdmin(backpack_user())) {
             return $this->respondToUnauthorizedRequest($request);
         }
-
+//        DB::enableQueryLog();
         return $next($request);
+//        $queries = DB::getQueryLog();
+//        dd($queries);
     }
 }
