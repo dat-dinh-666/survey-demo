@@ -29,7 +29,7 @@ const style = `
 .modal__container {
   background-color: #fff;
   padding: 10px;
-  max-width: 375px;
+  max-width: 475px;
   max-height: 90vh;
   border-radius: 4px;
   overflow-y: auto;
@@ -60,7 +60,6 @@ const style = `
 .modal__header .modal__close:before { content: "\\2715"; }
 
 .modal__content {
-  margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 1.5;
   color: rgba(0,0,0,.8);

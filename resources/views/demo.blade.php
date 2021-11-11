@@ -25,6 +25,7 @@
 </head>
 
 <body>
+@include('custom')
 <!-- Top Bar Start -->
 <div class="top-bar" id="topbar">
     <div class="container">
