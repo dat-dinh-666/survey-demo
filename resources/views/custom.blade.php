@@ -6,6 +6,11 @@
     </div>
     <div class="modal micromodal-slide" id="modal-sidebar" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="feedback-close">
+        <button data-micromodal-close>
+            <span data-micromodal-close>Close</span>
+        </button>
+    </div>
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-sidebar-title">
         <main class="modal__content" id="modal-sidebar-content">
           <div class="scene active" id="screen-1">
@@ -47,6 +52,7 @@
                   <div class="textarea">
                       <div class="hint">Culpa ad exercitation</div>
                       <textarea rows="3" name="textarea" placeholder="Optional"></textarea>
+                      <div class="inside-hint">Max 15 words</div>
                   </div>
               </div>
               <div class="container">
@@ -112,7 +118,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: end;
   align-items: center;
@@ -121,9 +128,9 @@
 .modal__container {
   background-color: #fff;
   padding: 30px;
-  max-width: 500px;
+  width: 50vw;
   height: 100vh;
-  border-radius: 4px;
+  border-left: 2px solid #f1f1f1;
   overflow-y: auto;
   box-sizing: border-box;
   display: flex;
@@ -271,6 +278,20 @@
     font-size: 14px;;
 }
 
+.feedback-close button {
+    writing-mode: vertical-lr;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background-color: #cecece;
+    padding: 15px 10px;
+    font-size: 14px;
+}
+
+.feedback-close button span {
+    writing-mode: vertical-rl;
+}
+
 .feedback-open button span {
     writing-mode: vertical-lr;
     display: block;
@@ -330,6 +351,17 @@
 .feedback-wrapper .hint {
     color: #aaaaaa;
     font-size: 0.75rem;
+}
+
+.feedback-wrapper .textarea {
+    position: relative;
+}
+
+.feedback-wrapper .inside-hint {
+    position: absolute;
+    bottom: 8px;
+    right: 5px;
+    font-size: 12px;
 }
 
 .feedback-wrapper .textarea textarea {
