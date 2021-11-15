@@ -8,7 +8,8 @@
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
     <div class="feedback-close">
         <button data-micromodal-close>
-            <span data-micromodal-close>Close</span>
+            <span data-micromodal-close>Schliessen</span>
+            <span style="font-size: 2rem; line-height: 0; margin-top: -8px">&#x02A2F;</span>
         </button>
     </div>
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-sidebar-title">
@@ -16,7 +17,7 @@
           <div class="scene active" id="screen-1">
               <div class="container">
                   <div class="title">
-                      Velit culpa labore non sint esse nostrud proident sint culpa duis.
+                    Wie würden Sie Ihre heutige Erfahrung bis zur Offertenseite des Webshops bewerten?
                   </div>
                   <div class="smile-icon-wrapper">
                     <div class="smile-icon">
@@ -40,55 +41,56 @@
                     <div class="smile-icon">
                         <input type="radio" id="smile-4" name="smile" value="4"/>
                         <label for="smile-4">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.4 62.4" style="enable-background:new 0 0 62.4 62.4;" xml:space="preserve"> <style type="text/css"> .st0{fill:#191919;} </style> <path class="st0" d="M31.2,61.5c-16.7,0-30.3-13.6-30.3-30.3c0-16.7,13.6-30.3,30.3-30.3c16.7,0,30.3,13.6,30.3,30.3 C61.5,47.9,47.9,61.5,31.2,61.5z M31.2,4.8C16.7,4.8,4.8,16.7,4.8,31.2c0,14.5,11.8,26.3,26.3,26.3c14.5,0,26.3-11.8,26.3-26.3 C57.5,16.7,45.7,4.8,31.2,4.8z"/> <path class="st0" d="M31.7,47.9h-0.5c-10.1,0-14.7-7.5-15.6-11.4l0,0c-0.3-1.3,0.6-2.5,1.9-2.5h27.9c1.3,0,2.3,1.2,1.9,2.5v0 C46.3,40.5,41.8,47.9,31.7,47.9z M20.5,38c1.4,2.5,4.5,5.9,10.7,5.9h0.5c6.2,0,9.3-3.4,10.7-5.9H20.5z"/> <circle class="st0" cx="20.7" cy="25.3" r="3.5"/> <circle class="st0" cx="41.4" cy="25.3" r="3.5"/> </svg>
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.4 62.4" style="enable-background:new 0 0 62.4 62.4;" xml:space="preserve"> <style type="text/css"> .st0{fill:#191919;} </style> <path class="st0" d="M31.2,61.5c-16.7,0-30.3-13.6-30.3-30.3c0-16.7,13.6-30.3,30.3-30.3c16.7,0,30.3,13.6,30.3,30.3 C61.5,47.9,47.9,61.5,31.2,61.5z M31.2,4.8C16.7,4.8,4.8,16.7,4.8,31.2c0,14.5,11.8,26.3,26.3,26.3c14.5,0,26.3-11.8,26.3-26.3 C57.5,16.7,45.7,4.8,31.2,4.8z"/> <path class="st0" d="M31.7,47.9h-0.5c-10.1,0-14.7-7.5-15.6-11.4l0,0c-0.3-1.3,0.6-2.5,1.9-2.5h27.9c1.3,0,2.3,1.2,1.9,2.5v0 C46.3,40.5,41.8,47.9,31.7,47.9z M20.5,38c1.4,2.5,4.5,5.9,10.7,5.9h0.5c6.2,0,9.3-3.4,10.7-5.9H20.5z"/> <circle class="st0" cx="20.7" cy="25.3" r="3.5"/> <circle class="st0" cx="41.4" cy="25.3" r="3.5"/> </svg>
                         </label>
                     </div>
                   </div>
               </div>
               <div class="container">
                   <div class="title">
-                      Amet cupidatat veniam dolor id.
+                    Was woll Sie uns über den Kaufprozess sagen?
                   </div>
                   <div class="textarea">
-                      <div class="hint">Culpa ad exercitation</div>
+                      <div class="hint">Ihre Meinung ist uns wichtig</div>
                       <textarea rows="3" name="textarea" placeholder="Optional"></textarea>
-                      <div class="inside-hint">Max 15 words</div>
+                      <div class="inside-hint">Noch xxx Zeichen</div>
                   </div>
               </div>
               <div class="container">
                   <div class="title">
-                      Velit ex ea excepteur elit nisi.
+                  Wieso verlassen Sie die Offertenseite?
                   </div>
                   <div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="1" id="radio-1"/>
-                          <label for="radio-1">Nostrud commodo non tempor a</label>
+                          <label for="radio-1">Ich wollte nur eine Preisauskunft.</label>
                       </div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="2" id="radio-2"/>
-                          <label for="radio-2">Nostrud commodo non tempor a</label>
+                          <label for="radio-2">Ich wollte den Gesamtpreis anschauen.</label>
                       </div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="3" id="radio-3"/>
-                          <label for="radio-3">Nostrud commodo non tempor a</label>
+                          <label for="radio-3">Ich wollte wissen was das 1. Klasse Sparbillet kostet.</label>
                       </div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="4" id="radio-4"/>
-                          <label for="radio-4">Nostrud commodo non tempor a</label>
+                          <label for="radio-4">Ich wollte wissen was das 1. Klasse Billet kostet.</label>
                       </div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="5" id="radio-5"/>
-                          <label for="radio-5">Nostrud commodo non tempor a</label>
+                          <label for="radio-5">Ich wollte mehr Details sehen.</label>
                       </div>
-                      <div>
+                      <div class="custom-radio">
                           <input type="radio" name="radio" value="custom" id="radio-custom"/>
-                          <input type="text" name="radio-custom"/>
+                          <label for="radio-custom">&nbsp;</label>
+                          <input type="text" name="radio-custom" placeholder="Andere."/>
                       </div>
                   </div>
               </div>
               <div class="container">
                   <button id="next-screen" class="action">
-                      <span>Mollit esse sit nostrud</span>
+                      <span>Feedback abschicken</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 42.67"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M63.22,19.57,44.5.78a2.67,2.67,0,0,0-3.78,3.77L54.79,18.67H2.67a2.67,2.67,0,1,0,0,5.33H55L40.73,38.11a2.67,2.67,0,1,0,3.76,3.78L63.21,23.35a2.67,2.67,0,0,0,0-3.78Z"/></g></g></svg></button>
               </div>
           </div>
@@ -97,8 +99,8 @@
                   <div class="title heart">
                   <svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 315" width="342" height="315"> <title>A_perfect_SVG_heart-svg</title> <style> tspan { white-space:pre } .shp0 { fill: #ff0000 } </style> <g id="heart"> <path id="Layer" class="shp0" d="M311.93 171.2L170.51 312.63L29.08 171.2C10.33 152.45 -0.2 127.02 -0.2 100.49C-0.2 73.97 10.33 48.54 29.08 29.78C47.84 11.03 73.27 0.49 99.8 0.49C126.32 0.49 151.75 11.03 170.51 29.78C189.26 11.03 214.7 0.49 241.22 0.49C267.74 0.49 293.17 11.03 311.93 29.78C330.68 48.54 341.22 73.97 341.22 100.49C341.22 127.02 330.68 152.45 311.93 171.2L311.93 171.2Z" /> </g> </svg>
                   </div>
-                  <div class="title">Minim dolore sunt adipisicing minim amet cillum ut ad consectetur.</div>
-                  <div class="title">Eiusmod laboris laborum cillum consequat occaecat mollit.</div>
+                  <div class="title">Besten Dank, dass Sie uns Feedback gegeben haben.</div>
+                  <div class="title">Sie helfen uns damit Ihren Erfolg auf der SBB.ch Website zu verbessern.</div>
               </div>
           </div>
         </main>
@@ -108,6 +110,13 @@
 </div>
 
 <style>
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .modal {
   font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 }
@@ -119,10 +128,17 @@
   right: 0;
   bottom: 0;
   background: rgba(0,0,0,0.05);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: end;
-  align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal__container {
@@ -132,16 +148,30 @@
   height: 100vh;
   border-left: 2px solid #f1f1f1;
   overflow-y: auto;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .modal__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal__title {
@@ -151,7 +181,8 @@
   font-size: 1.25rem;
   line-height: 1.25;
   color: #00449e;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .modal__close {
@@ -192,13 +223,17 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   transition: -webkit-transform .25s ease-out;
+  -webkit-transition: -webkit-transform .25s ease-out;
+  -o-transition: transform .25s ease-out;
   transition: transform .25s ease-out;
+  transition: transform .25s ease-out, -webkit-transform .25s ease-out;
   transition: transform .25s ease-out,-webkit-transform .25s ease-out;
 }
 
 .modal__btn:focus, .modal__btn:hover {
   -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+  -ms-transform: scale(1.05);
+      transform: scale(1.05);
 }
 
 .modal__btn-primary {
@@ -211,9 +246,18 @@
 /**************************\
   Demo Animation Style
 \**************************/
+@-webkit-keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
 @keyframes mmfadeIn {
     from { opacity: 0; }
       to { opacity: 1; }
+}
+
+@-webkit-keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
 }
 
 @keyframes mmfadeOut {
@@ -221,14 +265,24 @@
       to { opacity: 0; }
 }
 
+@-webkit-keyframes mmslideIn {
+  from { -webkit-transform: translateX(15%); transform: translateX(15%); }
+    to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
 @keyframes mmslideIn {
-  from { transform: translateX(15%); }
-    to { transform: translateY(0); }
+  from { -webkit-transform: translateX(15%); transform: translateX(15%); }
+    to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+@-webkit-keyframes mmslideOut {
+    from { -webkit-transform: translateY(0); transform: translateY(0); }
+    to { -webkit-transform: translateX(-10%); transform: translateX(-10%); }
 }
 
 @keyframes mmslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateX(-10%); }
+    from { -webkit-transform: translateY(0); transform: translateY(0); }
+    to { -webkit-transform: translateX(-10%); transform: translateX(-10%); }
 }
 
 .micromodal-slide {
@@ -240,19 +294,23 @@
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -webkit-animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+          animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+  -webkit-animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+          animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
 }
 
 .micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+  -webkit-animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+          animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 .micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+  -webkit-animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+          animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
 .micromodal-slide .modal__container,
@@ -264,44 +322,45 @@
     position: fixed;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
     z-index: 99999;
 }
 
 .feedback-open button {
-    writing-mode: vertical-lr;
-    box-shadow: none;
     outline: none;
     border: none;
-    background-color: #cecece;
-    padding: 15px 8px;
-    font-size: 14px;;
+    background-color: #dddddd;
+    padding: 8px 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
 }
 
 .feedback-close button {
-    writing-mode: vertical-lr;
-    box-shadow: none;
     outline: none;
     border: none;
-    background-color: #cecece;
-    padding: 15px 10px;
+    background-color: #dddddd;
+    padding: 10px 15px;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
 }
 
-.feedback-close button span {
-    writing-mode: vertical-rl;
+.feedback-close span {
+    margin: 0 4px;
 }
-
 .feedback-open button span {
-    writing-mode: vertical-lr;
     display: block;
 }
 
 
 .feedback-open button svg {
-    transform: rotate(90deg);
     width: 20px;
     display: inline-block;
+    margin-left: 10px;
 }
 
 .feedback-wrapper .title {
@@ -311,10 +370,19 @@
 }
 
 .feedback-wrapper .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0 0 50px;
 }
 
@@ -327,6 +395,8 @@
 }
 
 .feedback-wrapper .smile-icon-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -337,6 +407,8 @@
 .feedback-wrapper .smile-icon input + label {
     opacity: 0.5;
     cursor: pointer;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -374,12 +446,16 @@
 }
 
 .feedback-wrapper .action {
-    background: red;
+    background: #ec0001;
     border: none;
     color: white;
     padding: 10px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .feedback-wrapper .action svg {
@@ -403,10 +479,80 @@
 }
 
 #screen-2 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 100%;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+}
+
+.custom-radio [type="radio"]:checked,
+.custom-radio [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.custom-radio [type="radio"]:checked + label,
+.custom-radio [type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+.custom-radio [type="radio"]:checked + label:before,
+.custom-radio [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 100%;
+    background: #fff;
+}
+
+.custom-radio [type="radio"]:checked + label:before {
+    border-color: #ec0001;
+}
+.custom-radio [type="radio"]:checked + label:after,
+.custom-radio [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #ec0001;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.custom-radio [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+        transform: scale(0);
+}
+.custom-radio [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+        transform: scale(1);
 }
 </style>
 <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
