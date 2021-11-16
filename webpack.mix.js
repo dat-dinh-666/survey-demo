@@ -17,3 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 mix.js('resources/js/embedded.js', 'public/js');
+
+mix.sass("resources/css/normalize.scss", 'public/css', []);

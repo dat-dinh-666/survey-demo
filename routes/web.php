@@ -24,3 +24,8 @@ Route::get('/test', function () {
 Route::get('/home', function(){
    return redirect('/admin');
 });
+
+
+Route::get('/new-survey', function(){
+    return view('/new_survey');
+ });
