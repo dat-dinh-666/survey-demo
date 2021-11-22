@@ -1,8 +1,9 @@
 import MicroModal from "micromodal";
-import style from './embeded/style';
+import getStyle from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
 import {htmlToElement} from "./embeded/utils";
+import initMessageChannel from "./embeded/messageChannel";
 
 (function (){
     const currentUrl = window.location.href;
@@ -14,19 +15,21 @@ import {htmlToElement} from "./embeded/utils";
         const button_position = data.button_position ?? 'left';
         const close_btn_title = data.close_btn_title ?? 'Close';
         const header_img_url = data.header_img_url ?? null;
+        const popup_type = data.popup_type ?? 'modal';
+        const backdrop_opacity = parseFloat(data.backdrop_opacity) ?? 1;
 
         const position_style = button_position === 'left' ? 'left: 0' : 'right: 0';
 
         const styles = document.createElement('style');
-        styles.innerHTML = style;
+        styles.innerHTML = getStyle(popup_type);
 
-        const popup = htmlToElement(template, {close_btn_title, header_img_url});
+        const popup = htmlToElement(template, {close_btn_title, header_img_url, modal_position: button_position, popup_type, backdrop_opacity});
 
         const popupOpen = htmlToElement(`
-            <div style="position: fixed;
+            <div class="modal-open-original" style="position: fixed;
                 ${position_style};
                 top: 50%;
-                z-index: 10000;
+                z-index: 999;
                 background: ${button_bg_color};
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12);
                 color: ${button_color};
@@ -43,6 +46,7 @@ import {htmlToElement} from "./embeded/utils";
         document.querySelector('body').appendChild(popupOpen);
 
         MicroModal.init();
+        initMessageChannel();
     }
 
     async function getContent(){
@@ -54,8 +58,14 @@ import {htmlToElement} from "./embeded/utils";
     function createIframe(data) {
         const iframe = document.createElement('iframe', {})
         iframe.setAttribute('src', data.survey_url);
-        iframe.setAttribute('width', '1000px');
-        iframe.setAttribute('height', '500px');
+        if (data.popup_type === 'modal') {
+            iframe.setAttribute('width', '1000px');
+            iframe.setAttribute('height', '500px');
+        }
+        else {
+            iframe.setAttribute('width', '800px');
+            iframe.setAttribute('height', '700px');
+        }
         document.getElementById(`${modal_id}-content`).appendChild(iframe);
     }
 
@@ -96,4 +106,5 @@ import {htmlToElement} from "./embeded/utils";
             createHover(data);
         })
     })
-})();
+})();import initMessaging from "./embeded/messageChannel";
+

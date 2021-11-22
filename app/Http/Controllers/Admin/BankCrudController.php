@@ -138,6 +138,8 @@ class BankCrudController extends CrudController
             'disk'      => 'public',
         ]);
         $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close');
+        $this->crud->field('popup_type')->label('Popup Type')->type('enum');
+        $this->crud->field('backdrop_opacity')->label('Backdrop Opacity')->hint('0.01 to 0.99')->type('text')->default('1');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -176,6 +178,9 @@ class BankCrudController extends CrudController
         $this->crud->column('max_show_on_hover_times')
             ->label('Max show on hover times')
             ->type('number');
+        $this->crud->column('popup_type')
+            ->label('Popup Type')
+            ->type('text');
     }
 
     public function show($id) {

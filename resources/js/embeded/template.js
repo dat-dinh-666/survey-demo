@@ -1,8 +1,17 @@
-import {modal_id} from "./config";
+import {
+    modal_id
+} from "./config";
 
 const template = `
-<div class="modal micromodal-slide" id="${modal_id}" aria-hidden="true">
-    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+<div class="modal micromodal-slide {{it.modal_position}}" id="${modal_id}" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close style="background-color: rgba(0,0,0,{{it.backdrop_opacity}})">
+    {{@if(it.popup_type === 'sidebar' && it.modal_position == 'right')}}
+        <div class="modal-close-button">
+            <button data-micromodal-close>
+                <span data-micromodal-close>Close</span>
+            </button>
+        </div>
+    {{/if}}
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="${modal_id}-title">
         <header class="modal__header">
           <h2 class="modal__title" id="${modal_id}-title">
@@ -21,6 +30,13 @@ const template = `
           <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">{{it.close_btn_title}}</button>
         </footer>
       </div>
+      {{@if(it.popup_type === 'sidebar' && it.modal_position == 'left')}}
+      <div class="modal-close-button">
+          <button data-micromodal-close>
+              <span data-micromodal-close>Close</span>
+          </button>
+      </div>
+  {{/if}}
     </div>
 </div>`
 
