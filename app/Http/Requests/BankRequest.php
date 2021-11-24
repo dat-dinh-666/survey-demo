@@ -34,7 +34,7 @@ class BankRequest extends FormRequest
             'button_color' => 'string|min:7|max:7',
             'button_position' => 'string',
             'popup_timeout' => 'numeric|nullable',
-            'show_when_hover_id' => 'string',
+            'show_when_hover_id' => 'string|nullable',
             'max_show_on_hover_times' => 'numeric|nullable',
             'header_img_url'=> 'nullable|image',
             'close_btn_title' => 'string'

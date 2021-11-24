@@ -2,7 +2,8 @@ import MicroModal from "micromodal";
 import getStyle from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
-import {htmlToElement} from "./embeded/utils";
+import { htmlToElement } from "./embeded/utils";
+import feedbackIcon from '../images/feedback.svg';
 
 (function (){
     const currentUrl = window.location.href;
@@ -17,7 +18,7 @@ import {htmlToElement} from "./embeded/utils";
         const popup_type = data.popup_type ?? 'modal';
         const backdrop_opacity = parseFloat(data.backdrop_opacity) ?? 1;
 
-        const position_style = button_position === 'left' ? 'left: 0; writing-mode: vertical-lr' : 'right: 0; transform: rotate(90deg); transform-origin: top right';
+        const position_style = button_position === 'left' ? 'left: 0; writing-mode: vertical-lr' : 'right: 0;  writing-mode: vertical-lr; transform: rotate(180deg)';
 
         const styles = document.createElement('style');
         styles.innerHTML = getStyle(popup_type);
@@ -34,7 +35,9 @@ import {htmlToElement} from "./embeded/utils";
                 color: ${button_color};
                 padding: 10px 5px;
                 cursor: pointer;
-                font-weight: bold;">${button_text}</div>
+                display: flex;
+                font-size: 14px;
+                align-items: center;">${button_text} <img style="transform: rotate(90deg); width: 20px;margin-top: 5px;" src="${feedbackIcon}"/></div>
         `)
         popupOpen.addEventListener('click', function () {
             MicroModal.show(modal_id);
