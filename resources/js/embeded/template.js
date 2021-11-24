@@ -9,6 +9,7 @@ const template = `
         <div class="modal-close-button">
             <button data-micromodal-close>
                 <span data-micromodal-close>Close</span>
+                <span data-micromodal-close style="font-size: 2rem; line-height: 0; margin-top: -8px">&#x02A2F;</span>
             </button>
         </div>
     {{/if}}
@@ -26,14 +27,17 @@ const template = `
 
         <main class="modal__content" id="${modal_id}-content">
         </main>
+        {{@if(it.popup_type !== 'sidebar')}}
         <footer class="modal__footer">
           <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">{{it.close_btn_title}}</button>
         </footer>
+        {{/if}}
       </div>
       {{@if(it.popup_type === 'sidebar' && it.modal_position == 'left')}}
       <div class="modal-close-button">
           <button data-micromodal-close>
               <span data-micromodal-close>Close</span>
+              <span data-micromodal-close style="font-size: 2rem; line-height: 0; margin-top: -8px">&#x02A2F;</span>
           </button>
       </div>
   {{/if}}

@@ -3,7 +3,6 @@ import getStyle from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
 import {htmlToElement} from "./embeded/utils";
-import initMessageChannel from "./embeded/messageChannel";
 
 (function (){
     const currentUrl = window.location.href;
@@ -18,7 +17,7 @@ import initMessageChannel from "./embeded/messageChannel";
         const popup_type = data.popup_type ?? 'modal';
         const backdrop_opacity = parseFloat(data.backdrop_opacity) ?? 1;
 
-        const position_style = button_position === 'left' ? 'left: 0' : 'right: 0';
+        const position_style = button_position === 'left' ? 'left: 0; writing-mode: vertical-lr' : 'right: 0; transform: rotate(90deg); transform-origin: top right';
 
         const styles = document.createElement('style');
         styles.innerHTML = getStyle(popup_type);
@@ -34,7 +33,6 @@ import initMessageChannel from "./embeded/messageChannel";
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12);
                 color: ${button_color};
                 padding: 10px 5px;
-                writing-mode: vertical-lr;
                 cursor: pointer;
                 font-weight: bold;">${button_text}</div>
         `)
@@ -45,8 +43,12 @@ import initMessageChannel from "./embeded/messageChannel";
         document.querySelector('body').appendChild(popup);
         document.querySelector('body').appendChild(popupOpen);
 
-        MicroModal.init();
-        initMessageChannel();
+        MicroModal.init({
+            onShow: () => {
+                let src = document.location.protocol+"//"+document.location.host;
+                window.postMessage("retrieve-shoppingcart", src);
+            }
+        });
     }
 
     async function getContent(){
@@ -106,5 +108,5 @@ import initMessageChannel from "./embeded/messageChannel";
             createHover(data);
         })
     })
-})();import initMessaging from "./embeded/messageChannel";
+})();
 
