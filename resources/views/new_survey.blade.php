@@ -433,6 +433,12 @@
                 const screen_2 = document.querySelector("#screen-2")
                 screen_1.classList.remove('active')
                 screen_2.classList.add('active')
+                console.log('post message')
+                if(parent) {
+                    parent.postMessage({
+                        is_submitted: true
+                    }, '*')
+                }
             })
         })
     </script>

@@ -9,7 +9,7 @@ const template = `
         <div class="modal-close-button">
             <button data-micromodal-close>
                 <span data-micromodal-close>{{it.close_btn_title}}</span>
-                <span data-micromodal-close style="font-size: 2rem; line-height: 0; margin-top: -8px">&#x02A2F;</span>
+                <span data-micromodal-close class="x-icon">&#x02A2F;</span>
             </button>
         </div>
     {{/if}}
@@ -37,7 +37,7 @@ const template = `
       <div class="modal-close-button">
           <button data-micromodal-close>
               <span data-micromodal-close>{{it.close_btn_title}}</span>
-              <span data-micromodal-close style="font-size: 2rem; line-height: 0; margin-top: -8px">&#x02A2F;</span>
+              <span data-micromodal-close class="x-icon">&#x02A2F;</span>
           </button>
       </div>
   {{/if}}

@@ -37,7 +37,8 @@ class BankRequest extends FormRequest
             'show_when_hover_id' => 'string|nullable',
             'max_show_on_hover_times' => 'numeric|nullable',
             'header_img_url'=> 'nullable|image',
-            'close_btn_title' => 'string'
+            'close_btn_title' => 'string',
+            'close_after_submit' => 'numeric|nullable|min:1'
         ];
     }
 

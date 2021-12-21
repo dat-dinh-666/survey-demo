@@ -152,6 +152,10 @@ class BankCrudController extends CrudController
         $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close');
         $this->crud->field('popup_type')->label('Popup Type')->type('enum');
         $this->crud->field('backdrop_opacity')->label('Backdrop Opacity')->hint('0.01 to 0.99')->type('text')->default('1');
+        $this->crud->field('close_after_submit')->label('Close after submit')->hint('Close after user submitted (miliseconds)')->type('number')->attributes([
+            'allows_null' => true,
+            'min' => 1
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

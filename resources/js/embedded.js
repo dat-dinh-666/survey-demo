@@ -3,6 +3,7 @@ import getStyle from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
 import { htmlToElement } from "./embeded/utils";
+import '../css/default.scss'
 
 (function (){
     const currentUrl = window.location.href;
@@ -16,6 +17,8 @@ import { htmlToElement } from "./embeded/utils";
         const header_img_url = data.header_img_url ?? null;
         const popup_type = data.popup_type ?? 'modal';
         const backdrop_opacity = parseFloat(data.backdrop_opacity) ?? 1;
+        const close_after_submit = data.close_after_submit;
+
 
         const position_style = button_position === 'left' ? 'left: 0; writing-mode: vertical-lr' : 'right: 0;  writing-mode: vertical-lr; transform: rotate(180deg)';
 
@@ -44,6 +47,19 @@ import { htmlToElement } from "./embeded/utils";
         document.querySelector('body').appendChild(styles);
         document.querySelector('body').appendChild(popup);
         document.querySelector('body').appendChild(popupOpen);
+
+
+        if (close_after_submit > 0) {
+            window.addEventListener('message', (event) => {
+                console.log(event)
+                const { is_submitted } = event?.data ?? {};
+                if (is_submitted) {
+                    setTimeout(() => {
+                        MicroModal.close(modal_id)
+                    }, close_after_submit)
+                }
+            })
+        }
 
         MicroModal.init({
             onShow: () => {

@@ -14,8 +14,6 @@
         }
 
         .modal-close-button button {
-            transform-origin: bottom left;
-            transform: rotate(90deg);
         }
     }
 
@@ -25,7 +23,8 @@
         }
 
         .modal-close-button button {
-            transform-origin: bottom right;
+            transform: rotate(180deg);
+            transform-origin: center;
         }
     }
 
@@ -37,12 +36,22 @@
             outline: none;
             border: none;
             background-color: #dddddd;
-            padding: 10px 15px;
+            padding: 10px 8px;
             font-size: 14px;
             display: flex;
             align-items: center;
-            transform: rotate(-90deg);
             transform-origin: bottom right;
+            flex-direction: column;
+
+            span {
+                writing-mode: vertical-lr;
+            }
+        }
+
+        .x-icon {
+            font-size: 2rem;
+            line-height: 5px;
+            margin-left: 8px;
         }
     }
 }
@@ -252,4 +261,11 @@
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
     will-change: transform;
+}
+
+
+@media (max-width: 768px) {
+    .modal__container {
+        width: 100%;
+    }
 }
