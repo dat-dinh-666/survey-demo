@@ -3,7 +3,6 @@ import getStyle from './embeded/style';
 import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
 import { htmlToElement } from "./embeded/utils";
-import feedbackIcon from '../images/feedback.svg';
 
 (function (){
     const currentUrl = window.location.href;
@@ -37,7 +36,7 @@ import feedbackIcon from '../images/feedback.svg';
                 cursor: pointer;
                 display: flex;
                 font-size: 14px;
-                align-items: center;">${button_text} <img style="transform: rotate(90deg); width: 20px;margin-top: 5px;" src="${feedbackIcon}"/></div>
+                align-items: center;">${button_text} <img style="transform: rotate(90deg); width: 20px;margin-top: 5px;" src="${base_url}/images/feedback.svg"/></div>
         `)
         popupOpen.addEventListener('click', function () {
             MicroModal.show(modal_id);
