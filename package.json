@@ -19,6 +19,7 @@
         "sass-loader": "^12.3.0"
     },
     "dependencies": {
+        "iframe-resizer": "^4.3.2",
         "micromodal": "^0.4.6",
         "normalize.css": "^8.0.1",
         "squirrelly": "^8.0.8"

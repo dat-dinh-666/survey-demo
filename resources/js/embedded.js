@@ -4,6 +4,7 @@ import template from './embeded/template';
 import {modal_id, base_url} from './embeded/config';
 import { htmlToElement } from "./embeded/utils";
 import '../css/default.scss'
+import iframeResizer from "iframe-resizer";
 
 (function (){
     const currentUrl = window.location.href;
@@ -51,7 +52,6 @@ import '../css/default.scss'
 
         if (close_after_submit > 0) {
             window.addEventListener('message', (event) => {
-                console.log(event)
                 const { is_submitted } = event?.data ?? {};
                 if (is_submitted) {
                     setTimeout(() => {
@@ -81,10 +81,6 @@ import '../css/default.scss'
         if (data.popup_type === 'modal') {
             iframe.setAttribute('width', '1000px');
             iframe.setAttribute('height', '500px');
-        }
-        else {
-            iframe.setAttribute('width', '800px');
-            iframe.setAttribute('height', '700px');
         }
         document.getElementById(`${modal_id}-content`).appendChild(iframe);
     }

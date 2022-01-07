@@ -220,9 +220,9 @@
         }
 
         .feedback-wrapper .title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .feedback-wrapper .container {
@@ -433,7 +433,6 @@
                 const screen_2 = document.querySelector("#screen-2")
                 screen_1.classList.remove('active')
                 screen_2.classList.add('active')
-                console.log('post message')
                 if(parent) {
                     parent.postMessage({
                         is_submitted: true
