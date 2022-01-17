@@ -29,3 +29,8 @@ Route::get('/home', function(){
 Route::get('/new-survey', function(){
     return view('/new_survey');
  });
+
+
+ Route::get('/custom-survey-01', function(){
+    return view('/custom-survey-01');
+ });

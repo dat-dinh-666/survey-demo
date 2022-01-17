@@ -36,11 +36,13 @@ import iframeResizer from "iframe-resizer";
                 background: ${button_bg_color};
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12);
                 color: ${button_color};
-                padding: 10px 5px;
+                padding: 16px 8px;
                 cursor: pointer;
                 display: flex;
                 font-size: 14px;
-                align-items: center;">${button_text} <img style="transform: rotate(90deg); width: 20px;margin-top: 5px;" src="${base_url}/images/feedback.svg"/></div>
+                height: 150px;
+                justify-content: center;
+                align-items: center;">${button_text} <img style="transform: rotate(90deg); width: 20px;margin-top: 8px;" src="${base_url}/images/feedback.svg"/></div>
         `)
         popupOpen.addEventListener('click', function () {
             MicroModal.show(modal_id);

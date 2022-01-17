@@ -446,6 +446,12 @@
         will-change: transform;
     }
 
+    .feedback-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
     .feedback-open {
         position: fixed;
         right: 0;

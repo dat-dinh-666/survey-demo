@@ -36,13 +36,15 @@
             outline: none;
             border: none;
             background-color: #dddddd;
-            padding: 30px 0px;
             font-size: 14px;
             display: flex;
             align-items: center;
             transform-origin: bottom right;
             flex-direction: column;
-            width: 40px;
+            width: 37px;
+            height: 150px;
+            justify-content: center;
+            color: #444444;
 
             div {
                 writing-mode: vertical-lr;
@@ -52,8 +54,8 @@
                 display: block;
                 width: 15px;
                 height: 15px;
-                margin-top: 4px;
-                margin-left: -4px;
+                margin-top: 8px;
+                margin-left: -3px;
             }
         }
     }
