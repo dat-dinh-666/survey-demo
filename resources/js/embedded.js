@@ -115,7 +115,7 @@ import iframeResizer from "iframe-resizer";
 
     window.addEventListener('load', function() {
         getContent().then(data => {
-            if (!data.is_enable) {
+            if (!data || !data.is_enable) {
                 return
             }
             createPopup(data);

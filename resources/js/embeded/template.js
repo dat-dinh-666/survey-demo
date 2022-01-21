@@ -16,7 +16,6 @@ const template = `
         </div>
     {{/if}}
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="${modal_id}-title">
-        {{@if(it.popup_type !== 'sidebar')}}
         <header class="modal__header">
           <h2 class="modal__title" id="${modal_id}-title">
           {{@if(it.header_img_url !== null)}}
@@ -27,7 +26,6 @@ const template = `
           </h2>
           <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
         </header>
-        {{/if}}
         <main class="modal__content" id="${modal_id}-content">
         </main>
         {{@if(it.popup_type !== 'sidebar')}}

@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/embedded.js": "/js/embedded.js",
+    "/js/custom-survey.js": "/js/custom-survey.js",
     "/css/normalize.css": "/css/normalize.css",
     "/css/app.css": "/css/app.css"
 }
