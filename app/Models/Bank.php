@@ -21,7 +21,7 @@ class Bank extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
-     protected $hidden = ['user_id'];
+    protected $hidden = ['user_id'];
     // protected $dates = [];
 
     /*
@@ -42,10 +42,6 @@ class Bank extends Model
     */
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-
-    public function questions(){
-        return $this->hasMany(Question::class, 'id', 'bank_id');
     }
     /*
     |--------------------------------------------------------------------------

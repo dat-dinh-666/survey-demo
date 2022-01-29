@@ -1,0 +1,8 @@
+---
+- name: Survey demo deployment
+  hosts: survey_demo
+  tasks:
+     - name: Change group & user of cache
+       become: true
+       become_user: root
+       shell: cd /var/www/survey && sudo chgrp -R www-data storage bootstrap/cache && sudo chmod -R ug+rwx storage bootstrap/cache

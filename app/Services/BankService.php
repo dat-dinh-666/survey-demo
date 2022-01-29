@@ -23,6 +23,6 @@ class BankService
     }
 
     public function getBankByUrl($url) {
-        return $this->bankRepository->with('questions')->findWhere(['url' => $url, 'is_enable' => true])->first();
+        return $this->bankRepository->findWhere(['url' => $url, 'is_enable' => true])->first();
     }
 }

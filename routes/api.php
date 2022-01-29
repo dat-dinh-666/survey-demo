@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-   Route::get('/banks', [\App\Http\Controllers\Api\BankController::class, 'getByUrl']);
+    Route::get('/banks', [\App\Http\Controllers\Api\BankController::class, 'getByUrl']);
+    Route::post('/custom-form-data', [\App\Http\Controllers\Api\CustomFormData::class, 'create']);
 });

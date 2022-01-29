@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class CustomFormData extends Model
 {
     use CrudTrait;
 
@@ -15,28 +15,33 @@ class Question extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'questions';
+    protected $table = 'custom_form_data';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
-    // protected $hidden = [];
+    protected $hidden = [];
     // protected $dates = [];
+    protected $casts = [
+        'json' => 'json'
+    ];
 
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+//    public static function boot(){
+//        static::deleting(function($obj) {
+//            Storage::disk('storage/app/backpack')->delete($obj->header_img_url);
+//        });
+//    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function bank(){
-        return $this->belongsTo(Bank::class, 'bank_id', 'id');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -48,7 +53,6 @@ class Question extends Model
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
-
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

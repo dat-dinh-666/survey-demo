@@ -66,7 +66,11 @@ import iframeResizer from "iframe-resizer";
         MicroModal.init({
             onShow: () => {
                 let src = document.location.protocol+"//"+document.location.host;
+                window.addEventListener("message", (event) => {
+                    console.log(event)
+                }, false);
                 window.postMessage("retrieve-shoppingcart", src);
+
             }
         });
     }

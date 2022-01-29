@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
         jsonData['sbj_1006144'] = [form_data.get('sbj_1006144')];
         jsonData['sbj_1006145'] = [form_data.get('sbj_1006145')];
         jsonData['sbj_1006148'] = [form_data.get('sbj_1006148')];
-        axios.post('https://voice2025-surveycake.fast-insight.com/api/v1/s/submit-isc', {
+        jsonData['sbj_1006135'] = [new Date().toISOString()]
+        axios.post(`${process.env.MIX_APP_URL}/api/v1/custom-form-data`, {
             ansobj: jsonData,
             csrftoken: '102030',
             submittime: speedDate('YYYY-MM-DD HH:mm'),

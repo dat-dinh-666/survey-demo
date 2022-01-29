@@ -16,6 +16,7 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('user', 'UserCrudController');
     Route::crud('survey', 'BankCrudController');
+    Route::crud('custom-form-data', 'CustomFormDataController');
 //    Route::crud('question', 'QuestionCrudController');
 //    Route::crud('radio-question', 'RadioQuestionCrudController');
 }); // this should be the absolute last line of this file
