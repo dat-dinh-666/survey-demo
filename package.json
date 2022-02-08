@@ -10,7 +10,9 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
+        "eslint": "^8.8.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
@@ -19,6 +21,7 @@
         "sass-loader": "^12.3.0"
     },
     "dependencies": {
+        "axios": "^0.21.4",
         "iframe-resizer": "^4.3.2",
         "micromodal": "^0.4.6",
         "normalize.css": "^8.0.1",

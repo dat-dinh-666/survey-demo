@@ -27,17 +27,17 @@ class BankController extends \Illuminate\Routing\Controller
     public function getByUrl(GetBankRequest $request) {
 
         $url = $request->get('url');
-        try {
-            if(Cache::tags(['survey'])->has($url)) {
-                return response([
-                    'data' => Cache::tags(['survey'])->get($url),
-                    'from_cache' => true
-                ]);
-            }
-        }
-        catch(\Exception $e) {
-            Log::error($e);
-        }
+        // try {
+        //     if(Cache::tags(['survey'])->has($url)) {
+        //         return response([
+        //             'data' => Cache::tags(['survey'])->get($url),
+        //             'from_cache' => true
+        //         ]);
+        //     }
+        // }
+        // catch(\Exception $e) {
+        //     Log::error($e);
+        // }
         $bank = $this->bankService->getBankByUrl($url);
         try {
             Cache::tags(['survey'])->set($url, $bank);
