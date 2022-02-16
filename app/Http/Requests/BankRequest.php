@@ -30,7 +30,7 @@ class BankRequest extends FormRequest
             'survey_url' => 'required',
             'is_enable' => 'boolean',
             'user_id' => 'required',
-            'button_text' => 'string',
+            'button_text' => 'string|nullable',
             'button_color' => 'string|min:7|max:7',
             'button_position' => 'string',
             'popup_timeout' => 'numeric|nullable',

@@ -22,7 +22,7 @@
                     </div>
                     <div class="smile-icon-wrapper">
                         <div class="smile-icon">
-                            <input type="radio" id="smile-1" name="sbj_1006144" value="opt_1020264" />
+                            <input  type="radio" id="smile-1" name="sbj_1006144" value="opt_1020264" />
                             <label for="smile-1">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.4 62.4" style="enable-background:new 0 0 62.4 62.4;" xml:space="preserve">
                                     <style type="text/css">
@@ -38,7 +38,7 @@
                             </label>
                         </div>
                         <div class="smile-icon">
-                            <input type="radio" id="smile-2" name="sbj_1006144" value="opt_1020263" />
+                            <input  type="radio" id="smile-2" name="sbj_1006144" value="opt_1020263" />
                             <label for="smile-2">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60.7 60.7" style="enable-background:new 0 0 60.7 60.7;" xml:space="preserve">
                                     <style type="text/css">
@@ -74,7 +74,7 @@
                             </label>
                         </div>
                         <div class="smile-icon">
-                            <input type="radio" id="smile-4" name="sbj_1006144" value="opt_1020261" />
+                            <input  type="radio" id="smile-4" name="sbj_1006144" value="opt_1020261" />
                             <label for="smile-4">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.4 62.4" style="enable-background:new 0 0 62.4 62.4;" xml:space="preserve">
                                     <style type="text/css">
@@ -90,6 +90,7 @@
                             </label>
                         </div>
                     </div>
+                    <div class="error" data-error="sbj_1006144">This field is required</div>
                 </div>
                 <div class="container">
                     <div class="title">
@@ -139,49 +140,50 @@
                     </div>
                     <div class="custom-radio-number-container">
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020272" id="number-radio-1" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020272" id="number-radio-1" />
                             <label for="number-radio-1">1</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020273" id="number-radio-2" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020273" id="number-radio-2" />
                             <label for="number-radio-2">2</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020274" id="number-radio-3" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020274" id="number-radio-3" />
                             <label for="number-radio-3">3</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020275" id="number-radio-4" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020275" id="number-radio-4" />
                             <label for="number-radio-4">4</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020276" id="number-radio-5" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020276" id="number-radio-5" />
                             <label for="number-radio-5">5</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020277" id="number-radio-6" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020277" id="number-radio-6" />
                             <label for="number-radio-6">6</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020278" id="number-radio-7" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020278" id="number-radio-7" />
                             <label for="number-radio-7">7</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020279" id="number-radio-8" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020279" id="number-radio-8" />
                             <label for="number-radio-8">8</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020280" id="number-radio-9" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020280" id="number-radio-9" />
                             <label for="number-radio-9">9</label>
                         </div>
                         <div class="custom-radio-number">
-                            <input type="radio" name="sbj_1006148" value="obj_1020281" id="number-radio-10" />
+                            <input type="radio" name="sbj_1006148"  value="obj_1020281" id="number-radio-10" />
                             <label for="number-radio-10">10</label>
                         </div>
                     </div>
+                    <div class="error" data-error="sbj_1006148">This field is required</div>
                 </div>
                 <div class="container">
-                    <button id="next-screen" type="submit" class="action">
+                    <button type="submit" class="action">
                         <span>Feedback abschicken</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 42.67">
                             <g id="Layer_2" data-name="Layer 2">
@@ -503,6 +505,18 @@
 
         .custom-radio-number label:hover {
             background: #cecece;
+        }
+
+        .error {
+            margin-top: 10px;
+            color: red;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: 0.1s
+        }
+
+        .error.show {
+            opacity: 1;
         }
     </style>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>

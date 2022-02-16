@@ -25,4 +25,11 @@ class CustomFormDataService
     public function create($data) {
         return $this->customFormDataRepository->create($data);
     }
+
+    /**
+     * @return Collection
+     */
+    public function getAll() {
+        return $this->customFormDataRepository->all();
+    }
 }

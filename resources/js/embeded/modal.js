@@ -17,6 +17,7 @@ export default class Modal {
   }
 
   init() {
+    this.createButton();
     this.createPopup();
     this.createIframe();
     this.createTimeout();
@@ -24,31 +25,16 @@ export default class Modal {
     this.initClose();
   }
 
-  createPopup() {
-    const buttonText = this.data.button_text ?? 'Open Survey';
+  createButton() {
+    const buttonText = this.data.button_text;
+    if (!buttonText) {
+      return;
+    }
     const buttonColor = this.data.button_color ?? 'black';
     const buttonBgColor = this.data.button_bg_color ?? 'white';
     const buttonPosition = this.data.button_position ?? 'left';
-    const closeBtnTitle = this.data.close_btn_title ?? 'Close';
-    const headerImgUrl = this.data.header_img_url ?? null;
-    const popupType = this.data.popup_type ?? 'modal';
-    const backdropOpacity = parseFloat(this.data.backdrop_opacity) ?? 1;
-    const closeAfterSubmit = this.data.close_after_submit;
 
     const positionStyle = buttonPosition === 'left' ? 'left: 0; writing-mode: vertical-lr' : 'right: 0;  writing-mode: vertical-lr; transform: rotate(180deg)';
-
-    const styles = document.createElement('style');
-    styles.innerHTML = getStyle(popupType);
-
-    const popup = htmlToElement(modalTemplate, {
-      // eslint-disable-next-line max-len
-      close_btn_title: closeBtnTitle,
-      header_img_url: headerImgUrl,
-      modal_position: buttonPosition,
-      popup_type: popupType,
-      backdrop_opacity: backdropOpacity,
-      modal_id: this.modalId,
-    });
 
     const popupOpen = htmlToElement(`
             <div class="modal-open-original" style="position: fixed;
@@ -66,12 +52,34 @@ export default class Modal {
                 justify-content: center;
                 align-items: center;">${buttonText} <img style="transform: rotate(90deg); width: 20px;margin-top: 8px;" src="${baseUrl}/images/feedback.svg"/></div>
         `);
+    document.querySelector('body').appendChild(popupOpen);
     popupOpen.addEventListener('click', () => {
       MicroModal.show(this.modalId);
     });
+  }
+
+  createPopup() {
+    const closeBtnTitle = this.data.close_btn_title ?? 'Close';
+    const headerImgUrl = this.data.header_img_url ?? null;
+    const popupType = this.data.popup_type ?? 'modal';
+    const backdropOpacity = parseFloat(this.data.backdrop_opacity) ?? 1;
+    const closeAfterSubmit = this.data.close_after_submit;
+    const buttonPosition = this.data.button_position ?? 'left';
+
+    const styles = document.createElement('style');
+    styles.innerHTML = getStyle(popupType);
+
+    const popup = htmlToElement(modalTemplate, {
+      // eslint-disable-next-line max-len
+      close_btn_title: closeBtnTitle,
+      header_img_url: headerImgUrl,
+      modal_position: buttonPosition,
+      popup_type: popupType,
+      backdrop_opacity: backdropOpacity,
+      modal_id: this.modalId,
+    });
     document.querySelector('body').appendChild(styles);
     document.querySelector('body').appendChild(popup);
-    document.querySelector('body').appendChild(popupOpen);
 
     if (closeAfterSubmit > 0) {
       window.addEventListener('message', (event) => {
@@ -132,8 +140,8 @@ export default class Modal {
       return;
     }
     try {
-      document.getElementById(`#${hoverId}`).on('mouseover', () => {
-        if (hoverCount >= maxHovertime) {
+      document.getElementById(`${hoverId}`).addEventListener('mouseover', () => {
+        if (maxHovertime && hoverCount >= maxHovertime) {
           return;
         }
         hoverCount += 1;

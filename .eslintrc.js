@@ -9,7 +9,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-  },
+    },
   rules: {
+    "indent": ["warning", 4]
   },
 };

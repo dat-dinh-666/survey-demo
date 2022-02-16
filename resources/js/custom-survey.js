@@ -2,6 +2,7 @@
 import axios from 'axios';
 import speedDate from 'speed-date';
 import MicroModal from 'micromodal';
+import validator from 'validator';
 
 const jsonData = {
   svid: 'GVQZ0',
@@ -53,17 +54,20 @@ const jsonData = {
   ],
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  MicroModal.init({
-    onShow: () => {
-      document.querySelector('#modal-sidebar-trigger').style.display = 'none';
-    },
-    onClose: () => {
-      document.querySelector('#modal-sidebar-trigger').style.display = null;
-    },
-  });
-  const nextScreenTrigger = document.querySelector('#next-screen');
-  nextScreenTrigger.addEventListener('click', () => {
+function showError(name) {
+    const errorElem = document.querySelector(`[data-error=${name}]`);
+    if (errorElem) {
+        errorElem.classList.add('show');
+    }
+}
+
+function hideError(name) {
+    const errorElem = document.querySelector(`[data-error=${name}]`);
+    if (errorElem) {
+        errorElem.classList.remove('show');
+    }
+}
+function nextScreen() {
     const screen1 = document.querySelector('#screen-1');
     const screen2 = document.querySelector('#screen-2');
     screen1.classList.remove('active');
@@ -73,10 +77,53 @@ document.addEventListener('DOMContentLoaded', () => {
         is_submitted: true,
       }, '*');
     }
+};
+
+function validate(form) {
+    const formData = new FormData(form);
+    let hasError = false;
+    ['sbj_1006144', 'sbj_1006148'].map(v => {
+        if (!formData.get(v) || validator.isEmpty(formData.get(v))) {
+        hasError = true;
+        showError(v);
+        }
+        else {
+            hideError(v);
+        }
+    }
+    )
+    return hasError
+}
+
+function validateSingle(input) {
+    const formData = new FormData(input.form);
+    const name = input.name
+    if (!formData.get(name) || validator.isEmpty(formData.get(name))) {
+        showError(name);
+    }
+    else {
+        hideError(name);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  MicroModal.init({
+    onShow: () => {
+      document.querySelector('#modal-sidebar-trigger').style.display = 'none';
+    },
+    onClose: () => {
+      document.querySelector('#modal-sidebar-trigger').style.display = null;
+    },
   });
-  const surveyForm = document.querySelector('#survey-form');
+    const surveyForm = document.querySelector('#survey-form');
+    surveyForm.addEventListener('change', (e) => {
+        validateSingle(e.target)
+    })
   surveyForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (validate(e.target)) {
+      return;
+    }
     const formData = new FormData(e.target);
     jsonData.sbj_1006144 = [formData.get('sbj_1006144')];
     jsonData.sbj_1006145 = [formData.get('sbj_1006145')];
@@ -96,5 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => {
       console.log('Sent survey');
     });
+    nextScreen();
   });
 });

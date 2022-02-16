@@ -26,6 +26,7 @@
         "micromodal": "^0.4.6",
         "normalize.css": "^8.0.1",
         "speed-date": "^1.0.0",
-        "squirrelly": "^8.0.8"
+        "squirrelly": "^8.0.8",
+        "validator": "^13.7.0"
     }
 }

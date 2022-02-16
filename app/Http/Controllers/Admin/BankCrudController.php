@@ -81,14 +81,16 @@ class BankCrudController extends CrudController
         $userIsAdmin = $user->is_admin;
         CRUD::setValidation(BankRequest::class);
 
+        //General settings
         $this->crud->addField([
             'name'=> 'name',
             'type' => 'text',
-            'allows_null' => false
+            'allows_null' => false,
+            'tab' => 'General'
         ]);
-        $this->crud->field('url')->type('url');
-        $this->crud->field('survey_url')->label('Survey URL')->type('url');
-        $this->crud->field('is_enable')->label('Enable')->type('checkbox');
+        $this->crud->field('url')->type('url')->tab('General');
+        $this->crud->field('survey_url')->label('Survey URL')->type('url')->tab('General');
+        $this->crud->field('is_enable')->label('Enable')->type('checkbox')->tab('General');
         if($userIsAdmin) {
             $this->crud->addField([
                 'name' => 'user_id',
@@ -98,7 +100,8 @@ class BankCrudController extends CrudController
                 'attribute' => 'name',
                 'multiple' => false,
                 'pivot' => false,
-                'allows_null' => false
+                'allows_null' => false,
+                'tab' => 'General'
             ]);
         }
         else {
@@ -113,24 +116,23 @@ class BankCrudController extends CrudController
                 'allows_null' => false,
                 'default' => $user->id,
                 'value' => $user->id,
+                'tab' => 'General'
             ]);
         }
-        $this->crud->field('button_text')->label('Button Text')->type('text');
-        $this->crud->field('button_color')->label('Button Color')->type('color');
-        $this->crud->field('button_bg_color')->label('Button Background Color')->type('color');
-        $this->crud->field('button_position')->label('Button Position')->type('enum');
-        $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number')->attributes([
-            'allows_null' => true
-        ]);;
-        // $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over')->attributes([
-        //     'allows_null' => true
-        // ]);
+        // Button Settings
+        $this->crud->field('button_text')->label('Button Text')->type('text')->tab( 'Button' )->hint('Set empty string to hide the button');
+        $this->crud->field('button_color')->label('Button Color')->type('color')->tab('Button');
+        $this->crud->field('button_bg_color')->label('Button Background Color')->type('color')->tab('Button');
+        $this->crud->field('button_position')->label('Button Position')->type('enum')->tab('Button');
+
+        // Trigger settings
         $this->crud->addField([
             'name' => 'show_when_hover_id',
             'label' => 'Hover ID',
             'type' => 'text',
             'hint' => 'ID of the element that will show the popup when hover over',
-            'allows_null' => true
+            'allows_null' => true,
+            'tab' => 'Trigger'
         ]);
         $this->crud->field('max_show_on_hover_times')
             ->label('Max show on hover times')
@@ -140,7 +142,20 @@ class BankCrudController extends CrudController
                 'min' => 1,
                 'allows_null' => true
             ])
-            ->default(null);
+            ->default(null)
+            ->tab('Trigger');
+        $this->crud->field('popup_timeout')->label('Popup timeout (in seconds)')->hint('Show popup after (s) seconds')->type('number')->attributes([
+            'allows_null' => true,
+        ])->tab('Trigger');
+        $this->crud->field('close_after_submit')->label('Close after submit')->hint('Close after user submitted (miliseconds)')->type('number')->attributes([
+            'allows_null' => true,
+            'min' => 1,
+        ])->tab('Trigger');
+        // $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over')->attributes([
+        //     'allows_null' => true
+        // ]);
+
+        // Styling settings
         $this->crud->addField([
             'name'      => 'header_img_url',
             'label'     => 'Header Image',
@@ -148,14 +163,12 @@ class BankCrudController extends CrudController
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'public',
+            'tab' => 'Styling'
         ]);
-        $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close');
-        $this->crud->field('popup_type')->label('Popup Type')->type('enum');
-        $this->crud->field('backdrop_opacity')->label('Backdrop Opacity')->hint('0.01 to 0.99')->type('text')->default('1');
-        $this->crud->field('close_after_submit')->label('Close after submit')->hint('Close after user submitted (miliseconds)')->type('number')->attributes([
-            'allows_null' => true,
-            'min' => 1
-        ]);
+        $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close')->tab('Styling');
+        $this->crud->field('popup_type')->label('Popup Type')->type('enum')->tab('Styling');
+        $this->crud->field('backdrop_opacity')->label('Backdrop Opacity')->hint('0.01 to 0.99')->type('text')->default('1')->tab('Styling');
+
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
