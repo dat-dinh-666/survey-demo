@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     jsonData.sbj_1006145 = [formData.get('sbj_1006145')];
     jsonData.sbj_1006148 = [formData.get('sbj_1006148')];
     jsonData.sbj_1006135 = [new Date().toISOString()];
-    axios.post(`${process.env.MIX_APP_URL}/api/v1/custom-form-data`, {
+    axios.post(`${process.env.MIX_SURVEY_URL}`, {
       ansobj: jsonData,
       csrftoken: '102030',
       submittime: speedDate('YYYY-MM-DD HH:mm'),

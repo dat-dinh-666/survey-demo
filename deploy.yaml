@@ -6,3 +6,6 @@
        become: true
        become_user: root
        shell: cd /var/www/survey && sudo chgrp -R www-data storage bootstrap/cache && sudo chmod -R ug+rwx storage bootstrap/cache
+     - name: Sync file to s3
+       become: false
+       shell: cd /var/www/survey && aws s3 cp public/js/embedded.js s3://digital-isc-cx-bucket
