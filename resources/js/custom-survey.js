@@ -4,7 +4,7 @@ import speedDate from 'speed-date';
 import MicroModal from 'micromodal';
 import validator from 'validator';
 
-const jsonData = {
+let jsonData = {
   svid: 'GVQZ0',
   initime: '2021-06-14 12:49:38',
   mbr_time: '2021-06-14 12:49:38',
@@ -124,10 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validate(e.target)) {
       return;
     }
-    const formData = new FormData(e.target);
-    jsonData.sbj_1006144 = [formData.get('sbj_1006144')];
-    jsonData.sbj_1006145 = [formData.get('sbj_1006145')];
-    jsonData.sbj_1006148 = [formData.get('sbj_1006148')];
+    const formData = {};
+   (new FormData(e.target)).forEach((value, key) => formData[key] = value);
+    jsonData = Object.assign(jsonData, formData);
     jsonData.sbj_1006135 = [new Date().toISOString()];
     axios.post(`${process.env.MIX_SURVEY_URL}`, {
       ansobj: jsonData,

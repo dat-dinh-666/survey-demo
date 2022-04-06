@@ -1,6 +1,6 @@
 #!/bin/bash
 USER="ubuntu"
-HOST="ec2-52-215-28-114.eu-west-1.compute.amazonaws.com"
+HOST="34.246.29.190"
 HOST_PATH="/var/www/survey/"
 
 npm run prod

@@ -35,6 +35,7 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
             - 'sailmysql:/var/lib/mysql'
+            - './survey.sql:/var/survey.sql'
         networks:
             - sail
         healthcheck:

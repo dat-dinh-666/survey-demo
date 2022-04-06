@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BankRequest extends FormRequest
+class TemplateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,19 +26,7 @@ class BankRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'url' => 'required',
-            'type' => 'required',
-            'is_enable' => 'boolean',
-            'user_id' => 'required',
-            'button_text' => 'string|nullable',
-            'button_color' => 'string|min:7|max:7',
-            'button_position' => 'string',
-            'popup_timeout' => 'numeric|nullable',
-            'show_when_hover_id' => 'string|nullable',
-            'max_show_on_hover_times' => 'numeric|nullable',
-            'header_img_url'=> 'nullable|image',
-            'close_btn_title' => 'string',
-            'close_after_submit' => 'numeric|nullable|min:1'
+            'path' => 'required|mimetypes:text/html'
         ];
     }
 

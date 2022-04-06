@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\BankRequest;
 use App\Models\Bank;
+use App\Models\Template;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 
 /**
  * Class BankCrudController
@@ -47,7 +47,6 @@ class BankCrudController extends CrudController
         $userIsAdmin = $user->is_admin;
         $this->crud->column('name')->type('string');
         $this->crud->column('url')->type('string');
-        $this->crud->column('survey_url')->label('Surver URL')->type('string');
         $this->crud->column('is_enable')->label('Enable')->type('boolean');
         if($userIsAdmin) {
             $this->crud->addColumn([
@@ -89,8 +88,42 @@ class BankCrudController extends CrudController
             'tab' => 'General'
         ]);
         $this->crud->field('url')->type('url')->tab('General');
-        $this->crud->field('survey_url')->label('Survey URL')->type('url')->tab('General');
         $this->crud->field('is_enable')->label('Enable')->type('checkbox')->tab('General');
+        $this->crud->addField([
+            'name' => 'type',
+            'type' => 'select_from_array',
+            'multiple' => false,
+            'pivot' => false,
+            'allows_null' => false,
+            'options'         => ['iframe' => 'Iframe', 'template' => 'Template'],
+            'default' => 'iframe',
+            'tab' => 'General'
+        ]);
+        $this->crud->field('survey_url')->label('Survey URL')->type('url')->tab('General')->hint('Insert this if type is "iframe"');
+        $templates = Template::all(['id', 'name'])->toArray();
+        $templateOptions = [];
+        foreach($templates as $template) {
+            $templateOptions[$template['id']] = $template['name'];
+        }
+        $this->crud->addField([   // select2_from_array
+            'name'        => 'template_id',
+            'label'       => "Template",
+            'type'        => 'select2_from_array',
+            'options'     => $templateOptions,
+            'allows_null' => true,
+            'tab' => 'General'
+        ]);
+        $this->crud->addField([   // Table
+            'name'            => 'variables',
+            'label'           => 'variables',
+            'type'            => 'table',
+            'entity_singular' => 'option', // used on the "Add X" button
+            'columns'         => [
+                'name'  => 'Name',
+                'value'  => 'Description',
+            ],
+            'tab' => 'General'
+        ]);
         if($userIsAdmin) {
             $this->crud->addField([
                 'name' => 'user_id',
@@ -151,9 +184,9 @@ class BankCrudController extends CrudController
             'allows_null' => true,
             'min' => 1,
         ])->tab('Trigger');
-        // $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over')->attributes([
-        //     'allows_null' => true
-        // ]);
+        $this->crud->field('show_when_hover_id')->label('Hover ID')->hint('ID of the element that will show the popup when hover over')->attributes([
+            'allows_null' => true
+        ]);
 
         // Styling settings
         $this->crud->addField([
@@ -163,7 +196,7 @@ class BankCrudController extends CrudController
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'public',
-            'tab' => 'Styling'
+            'tab'       => 'Styling'
         ]);
         $this->crud->field('close_btn_title')->label('Close Button Text')->type('text')->default('Close')->tab('Styling');
         $this->crud->field('popup_type')->label('Popup Type')->type('enum')->tab('Styling');

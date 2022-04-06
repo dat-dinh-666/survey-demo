@@ -16,10 +16,15 @@ export default class Modal {
     this.data = data;
   }
 
-  init() {
+  async init() {
     this.createButton();
-    this.createPopup();
-    this.createIframe();
+    await this.createPopup();
+    if(this.data.type === 'iframe') {
+        this.createIframe();
+    }
+    else {
+        this.createTemplate();
+    }
     this.createTimeout();
     this.createHover();
     this.initClose();
@@ -58,7 +63,7 @@ export default class Modal {
     });
   }
 
-  createPopup() {
+  async createPopup() {
     const closeBtnTitle = this.data.close_btn_title ?? 'Close';
     const headerImgUrl = this.data.header_img_url ?? null;
     const popupType = this.data.popup_type ?? 'modal';
@@ -67,7 +72,7 @@ export default class Modal {
     const buttonPosition = this.data.button_position ?? 'left';
 
     const styles = document.createElement('style');
-    styles.innerHTML = getStyle(popupType);
+    styles.innerHTML = await getStyle(popupType);
 
     const popup = htmlToElement(modalTemplate, {
       // eslint-disable-next-line max-len
@@ -119,6 +124,12 @@ export default class Modal {
     document.getElementById(`${this.modalId}-content`).appendChild(iframe);
   }
 
+  createTemplate(){
+      const wrapper = document.createElement('div', {});
+      wrapper.innerHTML = this.data.template;
+      document.getElementById(`${this.modalId}-content`).appendChild(wrapper);
+  }
+
   createTimeout() {
     const timeout = this.data.popup_timeout;
     if (timeout <= 0 || Number.isNaN(timeout) || this.openTime > 0) {
@@ -159,9 +170,13 @@ export default class Modal {
   }
 
   initClose() {
-    const closers = document.querySelectorAll(`#${this.modalId} [data-modal-close]`);
-    closers.forEach((node) => {
-      node.addEventListener('click', () => {
+      const closers = document.querySelectorAll(`#${this.modalId} [data-modal-close]`);
+      console.log(closers)
+      closers.forEach((node) => {
+          node.addEventListener('click', (e) => {
+              if (e.target !== node) {
+                  return;
+            }
         this.close();
       });
     });
