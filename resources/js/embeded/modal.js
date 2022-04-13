@@ -2,7 +2,7 @@ import MicroModal from 'micromodal';
 import getStyle from './style';
 import { baseUrl } from './config';
 import modalTemplate from './template';
-import htmlToElement from './utils';
+import htmlToElement, {insertHTML} from './utils';
 
 export default class Modal {
   modalId;
@@ -126,8 +126,8 @@ export default class Modal {
 
   createTemplate(){
       const wrapper = document.createElement('div', {});
-      wrapper.innerHTML = this.data.template;
       document.getElementById(`${this.modalId}-content`).appendChild(wrapper);
+      insertHTML(this.data.template, wrapper, true)
   }
 
   createTimeout() {
