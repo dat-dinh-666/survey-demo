@@ -30,17 +30,17 @@ class BankController extends \Illuminate\Routing\Controller
     public function getByUrl(GetBankRequest $request) {
 
         $url = $request->get('url');
-        // try {
-        //     if(Cache::tags(['survey'])->has($url)) {
-        //         return response([
-        //             'data' => Cache::tags(['survey'])->get($url),
-        //             'from_cache' => true
-        //         ]);
-        //     }
-        // }
-        // catch(\Exception $e) {
-        //     Log::error($e);
-        // }
+//         try {
+             if(Cache::tags(['survey'])->has($url)) {
+                 return response([
+                     'data' => Cache::tags(['survey'])->get($url),
+                     'from_cache' => true
+                 ]);
+             }
+//         }
+//         catch(\Exception $e) {
+//             Log::error($e);
+//         }
         $banks = $this->bankService->getBanksByUrl($url);
         foreach ($banks as &$bank) {
             if($bank->type === 'template') {
@@ -62,7 +62,7 @@ class BankController extends \Illuminate\Routing\Controller
             }
         }
         try {
-            Cache::tags(['survey'])->set($url, $banks);
+            Cache::tags(['survey'])->set($url, $banks, 1800);
         }
         catch (\Exception $e) {
             Log::error($e);

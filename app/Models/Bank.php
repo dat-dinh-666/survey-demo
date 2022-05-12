@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class Bank extends Model
@@ -32,11 +33,18 @@ class Bank extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-//    public static function boot(){
-//        static::deleting(function($obj) {
-//            Storage::disk('storage/app/backpack')->delete($obj->header_img_url);
-//        });
-//    }
+    protected static function boot(){
+        parent::boot();
+        static::deleting(function($obj) {
+            Storage::disk('storage/app/backpack')->delete($obj->header_img_url);
+        });
+        static::updated(function ($obj) {
+            Cache::tags(['survey'])->delete($obj->url);
+        });
+        static::deleted(function ($obj) {
+            Cache::tags(['survey'])->delete($obj->url);
+        });
+    }
 
     /*
     |--------------------------------------------------------------------------

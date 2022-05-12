@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import speedDate from 'speed-date';
-import MicroModal from 'micromodal';
 import validator from 'validator';
 
 let jsonData = {
@@ -10,47 +9,46 @@ let jsonData = {
     mbr_time: '2021-06-14 12:49:38',
     svend: 'thankyou',
     sbj_1006133: [
-        'store_ID / usecase',
+        // 'store_ID / usecase',
     ],
     sbj_1008202: [
-        'geschäftszahl',
+        // 'geschäftszahl',
     ],
     sbj_1008203: [
-        'von',
+        // 'von',
     ],
     sbj_1008204: [
-        'nach',
+        // 'nach',
     ],
     sbj_1008205: [
-        'klasse',
+        // 'klasse',
     ],
     sbj_1008206: [
-        'preis',
+        // 'preis',
     ],
     sbj_1008207: [
-        'gesamtbetrag',
+        // 'gesamtbetrag',
     ],
     sbj_1008208: [
-        'PaymentMethodTypeCode',
+        // 'PaymentMethodTypeCode',
     ],
     sbj_1006134: [
-        'language',
+        // 'language',
     ],
     sbj_1006135: [
-        'visit date',
+        // 'visit date',
     ],
     sbj_1006144: [
-        'opt_1020261',
+        // 'opt_1020261',
     ],
     sbj_1006145: [
-        'customer comment',
+        // 'customer comment',
     ],
-
     sbj_1006147: [
-        'opt_1020265',
+        // 'opt_1020265',
     ],
     sbj_1006148: [
-        'obj_1020281',
+        // 'obj_1020281',
     ],
 };
 
@@ -105,14 +103,15 @@ function validateSingle(input) {
 }
 
 function init() {
-    MicroModal.init({
-        onShow: () => {
-            document.querySelector('#modal-sidebar-trigger').style.display = 'none';
-        },
-        onClose: () => {
-            document.querySelector('#modal-sidebar-trigger').style.display = null;
-        },
-    });
+    window.addEventListener('message', e => {
+        const data = JSON.parse(e.data)
+        jsonData['sbj_1008203'] = [data.bausteine[0].von]
+        jsonData['sbj_1008204'] = [data.bausteine[0].nach]
+        jsonData['sbj_1008205'] = [data.bausteine[0].klasse]
+        jsonData['sbj_1008206'] = [data.bausteine[0].preis]
+        jsonData['sbj_1008207'] = [data.gesamtbetrag]
+        jsonData['sbj_1008202'] = [data.geschaeftsprozessID]
+    })
 
     const surveyForm = document.querySelector('#survey-form');
 
@@ -125,22 +124,25 @@ function init() {
             return;
         }
         const formData = new FormData(e.target);
-        ['sbj_1006133', 'sbj_1006144', 'sbj_1006145', 'sbj_1006148'].forEach(i => {
-            if (formData.get(i)) {
-                jsonData[i] = [formData.get(i)];
+        for (let key of Object.keys(jsonData)) {
+            if (formData.get(key)) {
+                jsonData[key] = [formData.get(key)];
             }
-        })
+        }
         jsonData['sbj_1006135'] = [new Date().toISOString()]
-        axios.post(`${process.env.MIX_SURVEY_URL}`, {
-            ansobj: jsonData,
-            csrftoken: '102030',
-            submittime: speedDate('YYYY-MM-DD HH:mm'),
-            ip: 'none',
-            timestamp: speedDate('YYYY-MM-DD HH:mm'),
-        }, {
+        const dateFormatter = speedDate('YYYY-MM-DD HH:mm')
+        const params = new URLSearchParams()
+        params.append('ansobj', JSON.stringify(jsonData))
+        params.append('csrftoken', 102030)
+        params.append('submittime', dateFormatter(new Date()))
+        params.append('ip', 'none')
+        params.append('timestamp', dateFormatter(new Date()))
+
+        axios.post(`${process.env.MIX_SURVEY_URL}`, params, {
             headers: {
                 'X-Surveycake-Token': '*XNT2T5UkDszXH5R',
                 Cookie: 'csrftoken=102030',
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
         }).then(() => {
             console.log('Sent survey');

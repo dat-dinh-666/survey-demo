@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/embedded.js": "/js/embedded.js",
-    "/js/custom-survey.js": "/js/custom-survey.js",
-    "/css/normalize.css": "/css/normalize.css",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=3b03c496eefa5791d279",
+    "/js/embedded.js": "/js/embedded.js?id=6bad4b4bb4bde28ff1b5",
+    "/js/custom-survey.js": "/js/custom-survey.js?id=77ba1db7a69812b0d46c",
+    "/css/normalize.css": "/css/normalize.css?id=87f7031b9853305950c8",
+    "/css/app.css": "/css/app.css?id=68b329da9893e34099c7"
 }

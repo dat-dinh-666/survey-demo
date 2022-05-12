@@ -697,13 +697,13 @@
 <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        MicroModal.init({
-            onShow: modal => {
-                document.querySelector('#modal-sidebar-trigger').style.display = 'none'
-            },
-            onClose: modal => {
-                document.querySelector('#modal-sidebar-trigger').style.display = null
-            }
+        // MicroModal.init({
+        //     onShow: modal => {
+        //         document.querySelector('#modal-sidebar-trigger').style.display = 'none'
+        //     },
+        //     onClose: modal => {
+        //         document.querySelector('#modal-sidebar-trigger').style.display = null
+        //     }
         })
         const next_screen_trigger = document.querySelector("#next-screen");
         next_screen_trigger.addEventListener('click', () => {
